@@ -79,3 +79,10 @@ jobs:
                   API_TOKEN: ${{ secrets.BUILDS_TOKEN }}
                   GH_REPO: Vencord/builds
                   USERNAME: GitHub-Actions
+
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: devbuild-artifacts-${{ github.sha }}
+                  path: dist/
+                  retention-days: 7
